@@ -8,13 +8,6 @@
 
 #import "Article.h"
 
-@interface Article()
-@property (strong, nonatomic) NSString* title;
-@property (strong, nonatomic) NSString* thumbnail;
-@property (strong, nonatomic) NSString* abstract;
-
-@end
-
 @implementation Article
 
 -(instancetype) init:(NSString*) title ForThumbnail: (NSString*) thumbnail ForAbstract: (NSString*) abstract{

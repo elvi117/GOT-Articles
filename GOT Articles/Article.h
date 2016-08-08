@@ -9,5 +9,11 @@
 #import <Foundation/Foundation.h>
 
 @interface Article : NSObject
+
+@property (strong, nonatomic) NSString* title;
+@property (strong, nonatomic) NSString* thumbnail;
+@property (strong, nonatomic) NSString* abstract;
+
 -(instancetype) init:(NSString*) title ForThumbnail: (NSString*) thumbnail ForAbstract: (NSString*) abstract;
+
 @end
