@@ -7,7 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Article.h"
+#import "FavouriteProtocol.h"
 
 @interface ArticleTableViewCell : UITableViewCell
--(void) setValues_ForTitle:(NSString*) title ForThumbnail: (NSString*) thumbnail ForAbstract: (NSString*) abstract;
+
+@property (weak) id <FavouriteProtocol> delegateMethod;
+
+-(void) setArticleObject: (Article*) articleObject index: (NSInteger*) index;
+
 @end
