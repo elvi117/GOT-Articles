@@ -13,6 +13,8 @@
 		A672F2CF1D58C6D000086DA6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A672F2CD1D58C6D000086DA6 /* Main.storyboard */; };
 		A672F2D11D58C6D000086DA6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A672F2D01D58C6D000086DA6 /* Assets.xcassets */; };
 		A672F2D41D58C6D000086DA6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A672F2D21D58C6D000086DA6 /* LaunchScreen.storyboard */; };
+		A672F2DD1D58CAD600086DA6 /* ArticleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A672F2DC1D58CAD600086DA6 /* ArticleTableViewCell.m */; };
+		A672F2E01D58CECB00086DA6 /* Article.m in Sources */ = {isa = PBXBuildFile; fileRef = A672F2DF1D58CECB00086DA6 /* Article.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,11 @@
 		A672F2D01D58C6D000086DA6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A672F2D31D58C6D000086DA6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A672F2D51D58C6D000086DA6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A672F2DB1D58CAD600086DA6 /* ArticleTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArticleTableViewCell.h; sourceTree = "<group>"; };
+		A672F2DC1D58CAD600086DA6 /* ArticleTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArticleTableViewCell.m; sourceTree = "<group>"; };
+		A672F2DE1D58CECB00086DA6 /* Article.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Article.h; sourceTree = "<group>"; };
+		A672F2DF1D58CECB00086DA6 /* Article.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Article.m; sourceTree = "<group>"; };
+		A672F2E11D58DFBE00086DA6 /* FavouriteProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavouriteProtocol.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,10 +69,15 @@
 				A672F2C81D58C6D000086DA6 /* AppDelegate.m */,
 				A672F2CA1D58C6D000086DA6 /* ViewController.h */,
 				A672F2CB1D58C6D000086DA6 /* ViewController.m */,
+				A672F2E11D58DFBE00086DA6 /* FavouriteProtocol.h */,
 				A672F2CD1D58C6D000086DA6 /* Main.storyboard */,
 				A672F2D01D58C6D000086DA6 /* Assets.xcassets */,
 				A672F2D21D58C6D000086DA6 /* LaunchScreen.storyboard */,
 				A672F2D51D58C6D000086DA6 /* Info.plist */,
+				A672F2DB1D58CAD600086DA6 /* ArticleTableViewCell.h */,
+				A672F2DC1D58CAD600086DA6 /* ArticleTableViewCell.m */,
+				A672F2DE1D58CECB00086DA6 /* Article.h */,
+				A672F2DF1D58CECB00086DA6 /* Article.m */,
 				A672F2C41D58C6D000086DA6 /* Supporting Files */,
 			);
 			path = "GOT Articles";
@@ -149,6 +161,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A672F2E01D58CECB00086DA6 /* Article.m in Sources */,
+				A672F2DD1D58CAD600086DA6 /* ArticleTableViewCell.m in Sources */,
 				A672F2CC1D58C6D000086DA6 /* ViewController.m in Sources */,
 				A672F2C91D58C6D000086DA6 /* AppDelegate.m in Sources */,
 				A672F2C61D58C6D000086DA6 /* main.m in Sources */,
