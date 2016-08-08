@@ -65,10 +65,13 @@
 {
     
     ArticleTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Article"];
-
+    [cell setArticleObject:[self.arrayOfArticles objectAtIndex:indexPath.row ] index: indexPath.row];
+    cell.delegateMethod = self;
     return cell;
 }
 
-
+-(void) forwardIndex:(NSInteger)index{
+    NSLog(@"%ld", (long)index);
+}
 
 @end

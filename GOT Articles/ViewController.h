@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FavouriteProtocol.h"
 
-@interface ViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+@interface ViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, FavouriteProtocol>
 
 
 @end
