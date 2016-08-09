@@ -24,6 +24,7 @@
     [super viewDidLoad];
     
     self.arrayOfArticles = [[NSMutableArray alloc] init];
+    self.arrayOfFavourites = [[NSMutableArray alloc] init];
     [self fetchDataFromRemote];
 }
 
@@ -70,8 +71,12 @@
     return cell;
 }
 
--(void) forwardIndex:(NSInteger)index{
-    NSLog(@"%ld", (long)index);
+-(void) forwardIndex: (NSInteger) index isFavourite: (Boolean) is{
+    if (is)
+        [self.arrayOfFavourites addObject:[self.arrayOfArticles objectAtIndex:index]];
+    else
+        [self.arrayOfFavourites removeObject:[self.arrayOfArticles objectAtIndex:index]];
+    NSLog(@"%@", self.arrayOfFavourites);
 }
 
 @end

@@ -10,5 +10,5 @@
 
 @protocol FavouriteProtocol <NSObject>
 @required
--(void) forwardIndex: (NSInteger) index;
+-(void) forwardIndex: (NSInteger) index isFavourite: (Boolean) is;
 @end

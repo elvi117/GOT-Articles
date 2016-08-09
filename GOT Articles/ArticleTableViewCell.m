@@ -14,7 +14,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *thumbnailLabel;
 @property (weak, nonatomic) IBOutlet UILabel *abstractLabel;
 @property (weak, nonatomic) IBOutlet UIButton *favouriteButtonOutlet;
-@property ( nonatomic) NSInteger* index;
+@property ( nonatomic) NSInteger index;
 @property (nonatomic) Boolean isFavourite;
 
 @end
@@ -23,11 +23,11 @@
 
 - (IBAction)favouriteButtonClick:(id)sender {
     self.isFavourite = !self.isFavourite;
-    [self.delegateMethod forwardIndex:self.index];
+    [self.delegateMethod forwardIndex:self.index isFavourite:self.isFavourite ];
 
 }
 
--(void) setArticleObject: (Article*) articleObject index: (NSInteger*) index{
+-(void) setArticleObject: (Article*) articleObject index: (NSInteger) index{
 
         self.titleLabel.text = [articleObject title];
         self.thumbnailLabel.text = [articleObject thumbnail];

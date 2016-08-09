@@ -21,7 +21,7 @@
                                 <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="109" id="owC-Ht-3Mh">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Article" rowHeight="109" id="owC-Ht-3Mh" customClass="ArticleTableViewCell">
                                         <rect key="frame" x="0.0" y="28" width="600" height="109"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="owC-Ht-3Mh" id="Ird-80-AJ9">
@@ -47,11 +47,20 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uwG-cP-aVx">
-                                                    <rect key="frame" x="546" y="39" width="46" height="30"/>
+                                                    <rect key="frame" x="83" y="34" width="46" height="30"/>
                                                     <state key="normal" title="Button"/>
+                                                    <connections>
+                                                        <action selector="favouriteButtonClick:" destination="owC-Ht-3Mh" eventType="touchUpInside" id="D9x-ey-Ev9"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="abstractLabel" destination="e3E-u9-uT2" id="5i1-5e-hPG"/>
+                                            <outlet property="favouriteButtonOutlet" destination="uwG-cP-aVx" id="0tw-dw-egs"/>
+                                            <outlet property="thumbnailLabel" destination="KMx-FV-1S9" id="c3r-Si-93h"/>
+                                            <outlet property="titleLabel" destination="fNK-p1-wR7" id="E9b-Mr-jvq"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -63,9 +72,13 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="GcG-Hg-W6C"/>
+                    <connections>
+                        <outlet property="myTableView" destination="5lX-FS-A2U" id="dik-IE-z1u"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="276" y="355"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="kgk-yg-DTY">
