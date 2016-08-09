@@ -7,7 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Article.h"
+#import "FavouriteProtocol.h"
 
 @interface DetailViewController : UIViewController
 
+@property (weak) id <FavouriteProtocol> delegateMethod;
+
+@property (nonatomic) Boolean isFavourite;
+@property (readwrite, assign) NSInteger index;
+@property (strong, nonatomic) Article* articleObject;
 @end
