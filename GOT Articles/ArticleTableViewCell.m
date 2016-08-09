@@ -23,16 +23,31 @@
 
 - (IBAction)favouriteButtonClick:(id)sender {
     self.isFavourite = !self.isFavourite;
+    if (self.isFavourite) {
+        [self.favouriteButtonOutlet setTitle:@"jest" forState:UIControlStateNormal];
+    }
+    else
+        [self.favouriteButtonOutlet setTitle:@"nie" forState:UIControlStateNormal];
+    
     [self.delegateMethod forwardIndex:self.index isFavourite:self.isFavourite ];
 
 }
 
--(void) setArticleObject: (Article*) articleObject index: (NSInteger) index{
+-(void) setArticleObject: (Article*) articleObject index: (NSInteger) index isFavourite: (Boolean) is{
+    self.isFavourite = is;
+    self.titleLabel.text = [articleObject title];
+    self.thumbnailLabel.text = [articleObject thumbnail];
+    self.abstractLabel.text = [articleObject abstract];
+    self.index = index;
+    
+    if (self.isFavourite) {
+        [self.favouriteButtonOutlet setTitle:@"jest" forState:UIControlStateNormal];
+    }
+    else
+        [self.favouriteButtonOutlet setTitle:@"nie" forState:UIControlStateNormal];
 
-        self.titleLabel.text = [articleObject title];
-        self.thumbnailLabel.text = [articleObject thumbnail];
-        self.abstractLabel.text = [articleObject abstract];
-        self.index = index;
+    
+    
 }
 
 

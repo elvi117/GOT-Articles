@@ -14,6 +14,7 @@
 
 @property (weak) id <FavouriteProtocol> delegateMethod;
 
--(void) setArticleObject: (Article*) articleObject index: (NSInteger) index;
+
+-(void) setArticleObject: (Article*) articleObject index: (NSInteger) index isFavourite: (Boolean) is;
 
 @end
