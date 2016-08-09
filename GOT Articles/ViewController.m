@@ -106,14 +106,23 @@
     return cell;
 }
 
-
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [self performSegueWithIdentifier:@"segueID" sender: [NSNumber numberWithInteger:indexPath.row] ];
+}
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    DetailViewController *vcToPushTo = segue.destinationViewController;
-    vcToPushTo.delegateMethod = self;
-    vcToPushTo.isFavourite = true;
+    DetailViewController *destinationViewController = segue.destinationViewController;
+   
+destinationViewController.articleObject = [self.arrayOfArticles objectAtIndex:[sender integerValue]];
+    destinationViewController.index = [sender integerValue];
+    if(!self.showFavourites)
+    destinationViewController.isFavourite = [self.arrayOfFavourites containsObject:[self.arrayOfArticles objectAtIndex:[sender integerValue]]];
+   else
+       destinationViewController.isFavourite = true;
     
+    destinationViewController.delegateMethod =self;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
