@@ -6,10 +6,8 @@
 //  Copyright © 2016 Lukasz Matuszczak. All rights reserved.
 //
 
-#import "ViewController.h"
+#import <UIKit/UIKit.h>
 
-@interface DetailViewController : ViewController
+@interface DetailViewController : UIViewController
 
-@property (weak) id <FavouriteProtocol> delegateMethod;
-@property (nonatomic) Boolean isFavourite;
 @end
