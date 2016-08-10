@@ -31,19 +31,6 @@
     self.navigationController.navigationBar.tintColor = [UIColor blackColor];
 }
 
-- (IBAction)favouriteButtonClick:(id)sender {
-    self.isFavourite = !self.isFavourite;
-    [self.delegateMethod forwardIndex:self.index isFavourite:self.isFavourite];
-    [self changeFavouriteButtonOutlet];
-    
-}
-    
-- (IBAction)openURLInSafariClick:(id)sender {
-    NSLog(@"%ld", (long)self.index);
-    
-        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://gameofthrones.wikia.com/wiki/%@",[self.titleLabel.text stringByReplacingOccurrencesOfString:@" " withString:@"_"]]]];
-}
-
 -(void) changeFavouriteButtonOutlet{
     switch (self.isFavourite) {
         case true:
@@ -54,6 +41,20 @@
             [self.favouriteButtonOutlet setTitle:@"💙" forState:UIControlStateNormal];
             break;
     }
-
+    
 }
+
+//MARK: Buttons methods
+- (IBAction)favouriteButtonClick:(id)sender {
+    self.isFavourite = !self.isFavourite;
+    [self.delegateMethod forwardIndex:self.index isFavourite:self.isFavourite];
+    [self changeFavouriteButtonOutlet];
+    
+}
+    
+- (IBAction)openURLInSafariClick:(id)sender {
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://gameofthrones.wikia.com/wiki/%@",[self.titleLabel.text stringByReplacingOccurrencesOfString:@" " withString:@"_"]]]];
+}
+
+
 @end
