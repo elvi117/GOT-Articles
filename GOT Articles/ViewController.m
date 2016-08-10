@@ -35,20 +35,30 @@ typedef void(^completionBlock)(Boolean);
     self.arrayOfFavourites = [[NSMutableArray alloc] init];
     self.arrayWithIndexOfCellWithMoreHeight = [[NSMutableArray alloc] init];
     
-    [FetchDataFromRemote fetchDataFromRemote:self.arrayOfArticles :^(Boolean answer) {
-        if(answer)
-        [self.myTableView reloadData];
-        else {
-            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            [self showAlert];
-        });}
-    }] ;
+    [self callForDataFromWevService];
     
     UILongPressGestureRecognizer* longPressRecognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(onLongPress:)];
     [self.myTableView addGestureRecognizer:longPressRecognizer];
    
 }
 
+//MARK: Connect To Webservice
+-(void) callForDataFromWevService{
+    [FetchDataFromRemote fetchDataFromRemote:self.arrayOfArticles :^(Boolean answer) {
+        if(answer)
+        {dispatch_async(dispatch_get_main_queue(), ^{
+            [self.myTableView reloadData];
+        }); }
+
+        else {
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                [self showAlert];
+            });}
+    }] ;
+
+}
+
+//MARK:UIAlerViewDelegate
 -(void) showAlert{
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Network error"
                                                     message:@"Check your network connection"
@@ -56,22 +66,14 @@ typedef void(^completionBlock)(Boolean);
                                           cancelButtonTitle:@"OK"
                                           otherButtonTitles:nil];
     [alert show];
-
+    
 }
 
--(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
-{
-    [FetchDataFromRemote fetchDataFromRemote:self.arrayOfArticles :^(Boolean answer) {
-        if(answer)
-            [self.myTableView reloadData];
-        else {
-            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                [self showAlert];
-            });}
-    }] ;
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    [self callForDataFromWevService];
 }
 
-
+//MARK: GestuRecognition
 - (void)onLongPress:(UILongPressGestureRecognizer *)sender{
     if (sender.state == UIGestureRecognizerStateBegan)
     {
@@ -88,6 +90,7 @@ typedef void(^completionBlock)(Boolean);
     }
 }
 
+//MARK: TableViewDelegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     if (self.showFavourites)
@@ -116,24 +119,6 @@ typedef void(^completionBlock)(Boolean);
     [self performSegueWithIdentifier:@"segueID" sender: [NSNumber numberWithInteger:indexPath.row] ];
 }
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    DetailViewController *destinationViewController = segue.destinationViewController;
-   
-    if (!self.showFavourites) {
-        destinationViewController.articleObject = [self.arrayOfArticles objectAtIndex:[sender integerValue]];
-        destinationViewController.isFavourite = [self.arrayOfFavourites containsObject:[self.arrayOfArticles objectAtIndex:[sender integerValue]]];
-    }
-    else{
-        destinationViewController.articleObject = [self.arrayOfFavourites objectAtIndex:[sender integerValue]];
-        destinationViewController.isFavourite = true;
-        
-    }
-    
-    destinationViewController.index = [sender integerValue];
-    destinationViewController.delegateMethod =self;
-}
-
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
    
     int rowHeight;
@@ -151,6 +136,25 @@ typedef void(^completionBlock)(Boolean);
 }
 
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    DetailViewController *destinationViewController = segue.destinationViewController;
+    
+    if (!self.showFavourites) {
+        destinationViewController.articleObject = [self.arrayOfArticles objectAtIndex:[sender integerValue]];
+        destinationViewController.isFavourite = [self.arrayOfFavourites containsObject:[self.arrayOfArticles objectAtIndex:[sender integerValue]]];
+    }
+    else{
+        destinationViewController.articleObject = [self.arrayOfFavourites objectAtIndex:[sender integerValue]];
+        destinationViewController.isFavourite = true;
+        
+    }
+    
+    destinationViewController.index = [sender integerValue];
+    destinationViewController.delegateMethod =self;
+}
+
+//MARK: FavouriteDelegate
 -(void) forwardIndex: (NSInteger) index isFavourite: (Boolean) is{
     if(!self.showFavourites){
     if (is)
@@ -163,6 +167,7 @@ typedef void(^completionBlock)(Boolean);
     [self.myTableView reloadData];
 }
 
+//MARK: Buttons actions
 - (IBAction)filterDataButtonClick:(id)sender {
     self.showFavourites = !self.showFavourites;
     switch (self.showFavourites) {
