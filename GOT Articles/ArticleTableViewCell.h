@@ -13,7 +13,7 @@
 @interface ArticleTableViewCell : UITableViewCell
 
 @property (weak) id <FavouriteProtocol> delegateMethod;
-
+@property (weak, nonatomic) IBOutlet UILabel *abstractLabel;
 
 -(void) setArticleObject: (Article*) articleObject index: (NSInteger) index isFavourite: (Boolean) is;
 

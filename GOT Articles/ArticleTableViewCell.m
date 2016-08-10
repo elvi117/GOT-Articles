@@ -12,7 +12,6 @@
 @interface ArticleTableViewCell()
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *thumbnailLabel;
-@property (weak, nonatomic) IBOutlet UILabel *abstractLabel;
 @property (weak, nonatomic) IBOutlet UIButton *favouriteButtonOutlet;
 @property ( nonatomic) NSInteger index;
 @property (nonatomic) Boolean isFavourite;
