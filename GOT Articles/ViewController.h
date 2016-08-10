@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "FavouriteProtocol.h"
 
-@interface ViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, FavouriteProtocol>
+@interface ViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, FavouriteProtocol, UIAlertViewDelegate>
 
 
 @end

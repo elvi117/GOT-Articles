@@ -10,6 +10,7 @@
 #import "ArticleTableViewCell.h"
 #import "Article.h"
 #import "DetailViewController.h"
+#import "FetchDataFromRemote.h"
 
 @interface ViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *myTableView;
@@ -34,14 +35,42 @@ typedef void(^completionBlock)(Boolean);
     self.arrayOfFavourites = [[NSMutableArray alloc] init];
     self.arrayWithIndexOfCellWithMoreHeight = [[NSMutableArray alloc] init];
     
-    [self fetchDataFromRemote:^(Boolean _) {
+    [FetchDataFromRemote fetchDataFromRemote:self.arrayOfArticles :^(Boolean answer) {
+        if(answer)
         [self.myTableView reloadData];
-    }];
+        else {
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [self showAlert];
+        });}
+    }] ;
     
     UILongPressGestureRecognizer* longPressRecognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(onLongPress:)];
     [self.myTableView addGestureRecognizer:longPressRecognizer];
    
 }
+
+-(void) showAlert{
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Network error"
+                                                    message:@"Check your network connection"
+                                                   delegate:self
+                                          cancelButtonTitle:@"OK"
+                                          otherButtonTitles:nil];
+    [alert show];
+
+}
+
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    [FetchDataFromRemote fetchDataFromRemote:self.arrayOfArticles :^(Boolean answer) {
+        if(answer)
+            [self.myTableView reloadData];
+        else {
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                [self showAlert];
+            });}
+    }] ;
+}
+
 
 - (void)onLongPress:(UILongPressGestureRecognizer *)sender{
     if (sender.state == UIGestureRecognizerStateBegan)
@@ -59,42 +88,12 @@ typedef void(^completionBlock)(Boolean);
     }
 }
 
-
--(void) fetchDataFromRemote:(completionBlock) completionBlock{
-
-    NSURLSession *session = [NSURLSession sharedSession];
-    [[session dataTaskWithURL:[NSURL URLWithString:@"http://gameofthrones.wikia.com/api/v1/Articles/Top?expand=1&category=Characters&limit=75"]
-            completionHandler:^(NSData *data,
-                                NSURLResponse *response,
-                                NSError *error) {
-                if (data.length > 0 && error == nil)
-                {
-                    NSDictionary *greeting = [NSJSONSerialization JSONObjectWithData:data
-                                                                             options:0
-                                                                               error:NULL];
-                    NSMutableArray * a=  [[greeting objectForKey:@"items"]  mutableCopy];
-              
-                    for (NSString * i  in a) {
-                        
-                        Article* tmp = [[Article alloc] init:[i valueForKey:@"title"]  ForThumbnail:[i valueForKey:@"thumbnail"] ForAbstract:[i valueForKey:@"abstract"]];
-                        [self.arrayOfArticles addObject:tmp];
-                        
-                        
-                    }
-                   
-                }
-                completionBlock(true);
-            }] resume];
-
-}
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     if (self.showFavourites)
           return [self.arrayOfFavourites count];
     else
           return [self.arrayOfArticles count];
-  
 }
 
 
