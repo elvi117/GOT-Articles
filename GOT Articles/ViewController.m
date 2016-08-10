@@ -10,6 +10,7 @@
 #import "ArticleTableViewCell.h"
 #import "Article.h"
 #import "DetailViewController.h"
+
 @interface ViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *myTableView;
 
@@ -130,9 +131,12 @@ destinationViewController.articleObject = [self.arrayOfArticles objectAtIndex:[s
     int rowHeight;
     if ([self.arrayWithIndexOfCellWithMoreHeight containsObject: [NSNumber numberWithLong: indexPath.row]]) {
         ArticleTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Article"];
-       
-        
-        rowHeight = cell.frame.size.height;
+       CGSize maximumLabelSize = CGSizeMake(296, FLT_MAX);
+        CGRect textRect = [cell.abstractLabel.text boundingRectWithSize:maximumLabelSize
+                                                 options:NSStringDrawingUsesLineFragmentOrigin| NSStringDrawingUsesFontLeading
+                                              attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:16.0]}
+                                                 context:nil];
+        rowHeight = 170.0f;
         ;
     } else rowHeight = 125.0f;
     return rowHeight;
