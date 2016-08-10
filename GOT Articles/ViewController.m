@@ -140,7 +140,7 @@
                                                  options:NSStringDrawingUsesLineFragmentOrigin| NSStringDrawingUsesFontLeading
                                               attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:16.0]}
                                                  context:nil];
-        rowHeight = 170.0f;
+        rowHeight = textRect.size.height + cell.frame.size.height+30;
         ;
     } else rowHeight = 125.0f;
     return rowHeight;
