@@ -19,47 +19,47 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="125" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="5lX-FS-A2U">
-                                <rect key="frame" x="0.0" y="64" width="600" height="490"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <rect key="frame" x="0.0" y="64" width="600" height="492"/>
+                                <color key="backgroundColor" red="0.69411764705882351" green="0.69411764705882351" blue="0.69411764705882351" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="Article" rowHeight="125" id="owC-Ht-3Mh" customClass="ArticleTableViewCell">
                                         <rect key="frame" x="0.0" y="28" width="600" height="125"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="owC-Ht-3Mh" id="Ird-80-AJ9">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="124"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="124.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fNK-p1-wR7">
-                                                    <rect key="frame" x="8" y="8" width="530" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fNK-p1-wR7">
+                                                    <rect key="frame" x="8" y="8" width="530" height="20"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="530" id="jta-KX-VJo"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" name="HoeflerText-Regular" family="Hoefler Text" pointSize="20"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KMx-FV-1S9">
-                                                    <rect key="frame" x="8" y="37" width="530" height="21"/>
+                                                    <rect key="frame" x="8" y="36" width="530" height="15"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="530" id="vfN-vY-tDO"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" name="HoeflerText-Regular" family="Hoefler Text" pointSize="15"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e3E-u9-uT2">
-                                                    <rect key="frame" x="8" y="66" width="530" height="50"/>
-                                                    <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <rect key="frame" x="8" y="59" width="530" height="57"/>
+                                                    <color key="backgroundColor" white="0.74727909482758625" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <fontDescription key="fontDescription" name="HoeflerText-Regular" family="Hoefler Text" pointSize="20"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uwG-cP-aVx">
-                                                    <rect key="frame" x="546" y="47" width="46" height="30"/>
+                                                    <rect key="frame" x="546" y="16" width="46" height="92.5"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="46" id="dB7-Qv-Qaj"/>
                                                     </constraints>
-                                                    <state key="normal" title="Button"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                                     <connections>
                                                         <action selector="favouriteButtonClick:" destination="owC-Ht-3Mh" eventType="touchUpInside" id="D9x-ey-Ev9"/>
                                                     </connections>
@@ -79,9 +79,11 @@
                                                 <constraint firstItem="e3E-u9-uT2" firstAttribute="leading" secondItem="Ird-80-AJ9" secondAttribute="leadingMargin" id="gqG-ME-WDX"/>
                                                 <constraint firstItem="fNK-p1-wR7" firstAttribute="trailing" secondItem="KMx-FV-1S9" secondAttribute="trailing" id="kM4-jk-3Rc"/>
                                                 <constraint firstItem="e3E-u9-uT2" firstAttribute="bottom" secondItem="Ird-80-AJ9" secondAttribute="bottomMargin" id="mMb-r9-xE3"/>
-                                                <constraint firstItem="uwG-cP-aVx" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="KMx-FV-1S9" secondAttribute="trailing" constant="8" id="twz-3T-Asr"/>
+                                                <constraint firstItem="uwG-cP-aVx" firstAttribute="bottom" secondItem="Ird-80-AJ9" secondAttribute="bottomMargin" constant="-8" id="sKB-vH-20A"/>
+                                                <constraint firstItem="uwG-cP-aVx" firstAttribute="leading" secondItem="KMx-FV-1S9" secondAttribute="trailing" constant="8" id="twz-3T-Asr"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.69459669502617793" green="0.69459669502617793" blue="0.69459669502617793" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
                                             <outlet property="abstractLabel" destination="e3E-u9-uT2" id="5i1-5e-hPG"/>
                                             <outlet property="favouriteButtonOutlet" destination="uwG-cP-aVx" id="0tw-dw-egs"/>
@@ -96,14 +98,17 @@
                                 </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UQ9-TS-xac">
-                                <rect key="frame" x="277" y="562" width="46" height="30"/>
-                                <state key="normal" title="Button"/>
+                                <rect key="frame" x="234" y="564" width="131" height="28"/>
+                                <fontDescription key="fontDescription" name="HoeflerText-Black" family="Hoefler Text" pointSize="16"/>
+                                <state key="normal" title="Show Favourites">
+                                    <color key="titleColor" red="0.69459669502617793" green="0.69459669502617793" blue="0.69459669502617793" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="filterDataButtonClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="QQ0-N4-KAW"/>
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="UQ9-TS-xac" secondAttribute="bottom" constant="8" id="6l0-N5-YfS"/>
                             <constraint firstAttribute="trailingMargin" secondItem="5lX-FS-A2U" secondAttribute="trailing" constant="-20" id="DDY-YA-g1V"/>
