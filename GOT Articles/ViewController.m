@@ -116,13 +116,17 @@
 {
     DetailViewController *destinationViewController = segue.destinationViewController;
    
-destinationViewController.articleObject = [self.arrayOfArticles objectAtIndex:[sender integerValue]];
-    destinationViewController.index = [sender integerValue];
-    if(!self.showFavourites)
-    destinationViewController.isFavourite = [self.arrayOfFavourites containsObject:[self.arrayOfArticles objectAtIndex:[sender integerValue]]];
-   else
-       destinationViewController.isFavourite = true;
+    if (!self.showFavourites) {
+        destinationViewController.articleObject = [self.arrayOfArticles objectAtIndex:[sender integerValue]];
+        destinationViewController.isFavourite = [self.arrayOfFavourites containsObject:[self.arrayOfArticles objectAtIndex:[sender integerValue]]];
+    }
+    else{
+        destinationViewController.articleObject = [self.arrayOfFavourites objectAtIndex:[sender integerValue]];
+        destinationViewController.isFavourite = true;
+        
+    }
     
+    destinationViewController.index = [sender integerValue];
     destinationViewController.delegateMethod =self;
 }
 
@@ -158,6 +162,16 @@ destinationViewController.articleObject = [self.arrayOfArticles objectAtIndex:[s
 
 - (IBAction)filterDataButtonClick:(id)sender {
     self.showFavourites = !self.showFavourites;
+    switch (self.showFavourites) {
+        case true:
+            [self.filterDataButtonOutlet setTitle:@"Show All" forState:UIControlStateNormal];
+            break;
+            
+        case false:
+            [self.filterDataButtonOutlet setTitle:@"Show Favourites" forState:UIControlStateNormal];
+            break;
+    }
+    
     [self.arrayWithIndexOfCellWithMoreHeight removeAllObjects];
     [self.myTableView reloadData];
     
