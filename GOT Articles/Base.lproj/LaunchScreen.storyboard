@@ -18,8 +18,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GOT Articles" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gl5-lV-po2">
-                                <rect key="frame" x="20" y="246" width="560" height="107"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GOT Articles" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gl5-lV-po2">
+                                <rect key="frame" x="20" y="246" width="560" height="225"/>
                                 <fontDescription key="fontDescription" name="HoeflerText-Regular" family="Hoefler Text" pointSize="50"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -30,7 +30,7 @@
                             <constraint firstItem="Gl5-lV-po2" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="226" id="V5h-BZ-2gf"/>
                             <constraint firstItem="Gl5-lV-po2" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" id="jkC-qZ-F0b"/>
                             <constraint firstItem="Gl5-lV-po2" firstAttribute="trailing" secondItem="Ze5-6b-2t3" secondAttribute="trailingMargin" id="kh5-hn-n3C"/>
-                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="Gl5-lV-po2" secondAttribute="bottom" constant="247" id="lYb-fB-3py"/>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="Gl5-lV-po2" secondAttribute="bottom" constant="129" id="lYb-fB-3py"/>
                         </constraints>
                     </view>
                 </viewController>

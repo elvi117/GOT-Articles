@@ -23,6 +23,8 @@
 
 @end
 
+typedef void(^completionBlock)(Boolean);
+
 @implementation ViewController
 
 - (void)viewDidLoad {
@@ -32,7 +34,10 @@
     self.arrayOfFavourites = [[NSMutableArray alloc] init];
     self.arrayWithIndexOfCellWithMoreHeight = [[NSMutableArray alloc] init];
     
-    [self fetchDataFromRemote];
+    [self fetchDataFromRemote:^(Boolean _) {
+        [self.myTableView reloadData];
+    }];
+    
     UILongPressGestureRecognizer* longPressRecognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(onLongPress:)];
     [self.myTableView addGestureRecognizer:longPressRecognizer];
    
@@ -55,7 +60,7 @@
 }
 
 
--(void) fetchDataFromRemote{
+-(void) fetchDataFromRemote:(completionBlock) completionBlock{
 
     NSURLSession *session = [NSURLSession sharedSession];
     [[session dataTaskWithURL:[NSURL URLWithString:@"http://gameofthrones.wikia.com/api/v1/Articles/Top?expand=1&category=Characters&limit=75"]
@@ -78,7 +83,7 @@
                     }
                    
                 }
-                [self.myTableView reloadData];
+                completionBlock(true);
             }] resume];
 
 }
@@ -157,7 +162,6 @@
         [self.arrayOfFavourites removeObjectAtIndex:index];
     
     [self.myTableView reloadData];
-    NSLog(@"%@", self.arrayOfFavourites);
 }
 
 - (IBAction)filterDataButtonClick:(id)sender {
