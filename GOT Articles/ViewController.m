@@ -129,7 +129,7 @@
                                                  options:NSStringDrawingUsesLineFragmentOrigin| NSStringDrawingUsesFontLeading
                                               attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:16.0]}
                                                  context:nil];
-        rowHeight = textRect.size.height + cell.frame.size.height+30;
+        rowHeight = textRect.size.height + 155.0f;
         ;
     } else rowHeight = 125.0f;
     return rowHeight;
@@ -161,10 +161,11 @@
         [self.arrayOfFavourites addObject:[self.arrayOfArticles objectAtIndex:index]];
     else
         [self.arrayOfFavourites removeObject:[self.arrayOfArticles objectAtIndex:index]];}
-    else
+    else{
         [self.arrayOfFavourites removeObjectAtIndex:index];
-    
-    [self.myTableView reloadData];
+        [self.myTableView reloadData];
+    }
+
 }
 
 //MARK: Buttons actions
