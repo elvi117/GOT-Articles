@@ -6,7 +6,7 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--GOT Articles-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController automaticallyAdjustsScrollViewInsets="NO" id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
@@ -107,7 +107,7 @@
                             <constraint firstAttribute="trailing" secondItem="5lX-FS-A2U" secondAttribute="trailing" id="yYZ-HC-E8y"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="GcG-Hg-W6C"/>
+                    <navigationItem key="navigationItem" title="GOT Articles" id="GcG-Hg-W6C"/>
                     <connections>
                         <outlet property="filterDataButtonOutlet" destination="UQ9-TS-xac" id="spA-Di-7hl"/>
                         <outlet property="myTableView" destination="5lX-FS-A2U" id="dik-IE-z1u"/>
