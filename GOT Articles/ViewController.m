@@ -28,7 +28,8 @@
 
 @implementation ViewController
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
     self.showFavourites = false;
     self.arrayOfArticles = [[NSMutableArray alloc] init];
@@ -43,7 +44,8 @@
 }
 
 //MARK: Connect To Webservice
--(void) callForDataFromWevService{
+-(void) callForDataFromWevService
+{
     [FetchDataFromRemote fetchDataFromRemote:self.arrayOfArticles :^(Boolean answer) {
         if(answer)
         {dispatch_async(dispatch_get_main_queue(), ^{
@@ -59,7 +61,8 @@
 }
 
 //MARK:UIAlerViewDelegate
--(void) showAlert{
+-(void) showAlert
+{
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Network error"
                                                     message:@"Check your network connection"
                                                    delegate:self
@@ -74,7 +77,8 @@
 }
 
 //MARK: GestuRecognition
-- (void)onLongPress:(UILongPressGestureRecognizer *)sender{
+- (void)onLongPress:(UILongPressGestureRecognizer *)sender
+{
     if (sender.state == UIGestureRecognizerStateBegan)
     {
         CGPoint point = [sender locationInView:self.myTableView];
@@ -119,20 +123,12 @@
     [self performSegueWithIdentifier:@"segueID" sender: [NSNumber numberWithInteger:indexPath.row] ];
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-   
-    int rowHeight;
-    if ([self.arrayWithIndexOfCellWithMoreHeight containsObject: [NSNumber numberWithLong: indexPath.row]]) {
-        ArticleTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Article"];
-       CGSize maximumLabelSize = CGSizeMake(296, FLT_MAX);
-        CGRect textRect = [cell.abstractLabel.text boundingRectWithSize:maximumLabelSize
-                                                 options:NSStringDrawingUsesLineFragmentOrigin| NSStringDrawingUsesFontLeading
-                                              attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:16.0]}
-                                                 context:nil];
-        rowHeight = textRect.size.height + 155.0f;
-        ;
-    } else rowHeight = 125.0f;
-    return rowHeight;
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if ([self.arrayWithIndexOfCellWithMoreHeight containsObject: [NSNumber numberWithLong: indexPath.row]])
+        return 175.0f;
+    else
+        return 125.0f;
 }
 
 
@@ -155,21 +151,22 @@
 }
 
 //MARK: FavouriteDelegate
--(void) forwardIndex: (NSInteger) index isFavourite: (Boolean) is{
+-(void) forwardIndex: (NSInteger) index isFavourite: (Boolean) is
+{
     if(!self.showFavourites){
-    if (is)
-        [self.arrayOfFavourites addObject:[self.arrayOfArticles objectAtIndex:index]];
+        if (is)
+            [self.arrayOfFavourites addObject:[self.arrayOfArticles objectAtIndex:index]];
+        else
+            [self.arrayOfFavourites removeObject:[self.arrayOfArticles objectAtIndex:index]];}
     else
-        [self.arrayOfFavourites removeObject:[self.arrayOfArticles objectAtIndex:index]];}
-    else{
         [self.arrayOfFavourites removeObjectAtIndex:index];
-        [self.myTableView reloadData];
-    }
-
+    
+    [self.myTableView reloadData];
 }
 
 //MARK: Buttons actions
-- (IBAction)filterDataButtonClick:(id)sender {
+- (IBAction)filterDataButtonClick:(id)sender
+{
     self.showFavourites = !self.showFavourites;
     switch (self.showFavourites) {
         case true:
