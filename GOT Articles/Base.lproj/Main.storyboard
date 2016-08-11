@@ -26,23 +26,17 @@
                                         <rect key="frame" x="0.0" y="28" width="600" height="125"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="owC-Ht-3Mh" id="Ird-80-AJ9">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="124.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="124"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fNK-p1-wR7">
                                                     <rect key="frame" x="8" y="8" width="530" height="20"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="530" id="jta-KX-VJo"/>
-                                                    </constraints>
                                                     <fontDescription key="fontDescription" name="HoeflerText-Regular" family="Hoefler Text" pointSize="20"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KMx-FV-1S9">
                                                     <rect key="frame" x="8" y="36" width="530" height="15"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="530" id="vfN-vY-tDO"/>
-                                                    </constraints>
                                                     <fontDescription key="fontDescription" name="HoeflerText-Regular" family="Hoefler Text" pointSize="15"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -55,10 +49,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uwG-cP-aVx">
-                                                    <rect key="frame" x="546" y="16" width="46" height="92.5"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="46" id="dB7-Qv-Qaj"/>
-                                                    </constraints>
+                                                    <rect key="frame" x="546" y="32" width="46" height="60"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                                     <connections>
                                                         <action selector="favouriteButtonClick:" destination="owC-Ht-3Mh" eventType="touchUpInside" id="D9x-ey-Ev9"/>
@@ -66,21 +57,19 @@
                                                 </button>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="KMx-FV-1S9" firstAttribute="top" secondItem="fNK-p1-wR7" secondAttribute="bottom" constant="8" id="7Y3-3y-FS6"/>
-                                                <constraint firstItem="fNK-p1-wR7" firstAttribute="top" secondItem="Ird-80-AJ9" secondAttribute="topMargin" id="9yN-NX-aZv"/>
-                                                <constraint firstItem="fNK-p1-wR7" firstAttribute="leading" secondItem="Ird-80-AJ9" secondAttribute="leadingMargin" id="AlD-Rg-Sa5"/>
-                                                <constraint firstItem="fNK-p1-wR7" firstAttribute="leading" secondItem="KMx-FV-1S9" secondAttribute="leading" id="BGg-vv-sjd"/>
-                                                <constraint firstItem="e3E-u9-uT2" firstAttribute="trailing" secondItem="KMx-FV-1S9" secondAttribute="trailing" id="F41-wl-crc"/>
-                                                <constraint firstItem="uwG-cP-aVx" firstAttribute="trailing" secondItem="Ird-80-AJ9" secondAttribute="trailingMargin" id="Ffl-dG-r6C"/>
-                                                <constraint firstItem="KMx-FV-1S9" firstAttribute="leading" secondItem="Ird-80-AJ9" secondAttribute="leadingMargin" id="LSc-mE-e2g"/>
-                                                <constraint firstItem="e3E-u9-uT2" firstAttribute="top" secondItem="KMx-FV-1S9" secondAttribute="bottom" constant="8" id="UbJ-Ft-VAK"/>
-                                                <constraint firstItem="e3E-u9-uT2" firstAttribute="leading" secondItem="KMx-FV-1S9" secondAttribute="leading" id="bpv-rW-bjq"/>
-                                                <constraint firstItem="uwG-cP-aVx" firstAttribute="centerY" secondItem="Ird-80-AJ9" secondAttribute="centerY" id="gLd-6X-9rT"/>
-                                                <constraint firstItem="e3E-u9-uT2" firstAttribute="leading" secondItem="Ird-80-AJ9" secondAttribute="leadingMargin" id="gqG-ME-WDX"/>
-                                                <constraint firstItem="fNK-p1-wR7" firstAttribute="trailing" secondItem="KMx-FV-1S9" secondAttribute="trailing" id="kM4-jk-3Rc"/>
-                                                <constraint firstItem="e3E-u9-uT2" firstAttribute="bottom" secondItem="Ird-80-AJ9" secondAttribute="bottomMargin" id="mMb-r9-xE3"/>
-                                                <constraint firstItem="uwG-cP-aVx" firstAttribute="bottom" secondItem="Ird-80-AJ9" secondAttribute="bottomMargin" constant="-8" id="sKB-vH-20A"/>
-                                                <constraint firstItem="uwG-cP-aVx" firstAttribute="leading" secondItem="KMx-FV-1S9" secondAttribute="trailing" constant="8" id="twz-3T-Asr"/>
+                                                <constraint firstItem="e3E-u9-uT2" firstAttribute="bottom" secondItem="Ird-80-AJ9" secondAttribute="bottomMargin" id="3lX-ZY-nlb"/>
+                                                <constraint firstItem="fNK-p1-wR7" firstAttribute="leading" secondItem="Ird-80-AJ9" secondAttribute="leadingMargin" id="6g9-tT-hf3"/>
+                                                <constraint firstItem="uwG-cP-aVx" firstAttribute="centerY" secondItem="Ird-80-AJ9" secondAttribute="centerY" id="Avt-bq-afn"/>
+                                                <constraint firstItem="fNK-p1-wR7" firstAttribute="top" secondItem="Ird-80-AJ9" secondAttribute="topMargin" id="G1D-Fy-zHi"/>
+                                                <constraint firstItem="e3E-u9-uT2" firstAttribute="top" secondItem="KMx-FV-1S9" secondAttribute="bottom" constant="8" symbolic="YES" id="KIF-Qx-KYc"/>
+                                                <constraint firstItem="uwG-cP-aVx" firstAttribute="leading" secondItem="e3E-u9-uT2" secondAttribute="trailing" constant="8" symbolic="YES" id="Kck-2k-XnY"/>
+                                                <constraint firstItem="uwG-cP-aVx" firstAttribute="leading" secondItem="KMx-FV-1S9" secondAttribute="trailing" constant="8" symbolic="YES" id="TsU-Xh-YxG"/>
+                                                <constraint firstItem="KMx-FV-1S9" firstAttribute="top" secondItem="fNK-p1-wR7" secondAttribute="bottom" constant="8" symbolic="YES" id="bp8-5q-9zj"/>
+                                                <constraint firstItem="KMx-FV-1S9" firstAttribute="leading" secondItem="e3E-u9-uT2" secondAttribute="leading" id="cgB-3i-dI6"/>
+                                                <constraint firstItem="uwG-cP-aVx" firstAttribute="trailing" secondItem="Ird-80-AJ9" secondAttribute="trailingMargin" id="i2n-Kd-Gfz"/>
+                                                <constraint firstItem="fNK-p1-wR7" firstAttribute="leading" secondItem="KMx-FV-1S9" secondAttribute="leading" id="jKc-ZO-OJ5"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="fNK-p1-wR7" secondAttribute="trailing" constant="54" id="mnv-EE-Eui"/>
+                                                <constraint firstItem="fNK-p1-wR7" firstAttribute="trailing" secondItem="KMx-FV-1S9" secondAttribute="trailing" id="szR-cw-Zw2"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.69459669502617793" green="0.69459669502617793" blue="0.69459669502617793" alpha="1" colorSpace="calibratedRGB"/>
@@ -110,13 +99,12 @@
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="UQ9-TS-xac" secondAttribute="bottom" constant="8" id="6l0-N5-YfS"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="5lX-FS-A2U" secondAttribute="trailing" constant="-20" id="DDY-YA-g1V"/>
-                            <constraint firstItem="5lX-FS-A2U" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="Haq-hF-8a4"/>
-                            <constraint firstItem="UQ9-TS-xac" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="O7e-CY-cul"/>
-                            <constraint firstItem="UQ9-TS-xac" firstAttribute="top" secondItem="5lX-FS-A2U" secondAttribute="bottom" constant="8" id="WdO-b5-BL1"/>
-                            <constraint firstItem="UQ9-TS-xac" firstAttribute="top" secondItem="5lX-FS-A2U" secondAttribute="bottom" constant="8" id="ZmK-Ud-Ebx"/>
-                            <constraint firstItem="5lX-FS-A2U" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="s8P-XV-nvC"/>
+                            <constraint firstItem="5lX-FS-A2U" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="0AD-HH-gqI"/>
+                            <constraint firstItem="5lX-FS-A2U" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="4Xi-ma-plR"/>
+                            <constraint firstItem="5lX-FS-A2U" firstAttribute="centerX" secondItem="UQ9-TS-xac" secondAttribute="centerX" id="7A7-Hf-iac"/>
+                            <constraint firstItem="UQ9-TS-xac" firstAttribute="top" secondItem="5lX-FS-A2U" secondAttribute="bottom" constant="8" symbolic="YES" id="iUb-et-NhP"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="UQ9-TS-xac" secondAttribute="bottom" constant="8" symbolic="YES" id="oeD-HE-lXl"/>
+                            <constraint firstAttribute="trailing" secondItem="5lX-FS-A2U" secondAttribute="trailing" id="yYZ-HC-E8y"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="GcG-Hg-W6C"/>

@@ -10,6 +10,7 @@
 #import "ArticleTableViewCell.h"
 #import "Article.h"
 #import "DetailViewController.h"
+#import "FetchDataFromRemote.h"
 
 @interface ViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *myTableView;
@@ -23,6 +24,8 @@
 
 @end
 
+typedef void(^completionBlock)(Boolean);
+
 @implementation ViewController
 
 - (void)viewDidLoad {
@@ -32,12 +35,45 @@
     self.arrayOfFavourites = [[NSMutableArray alloc] init];
     self.arrayWithIndexOfCellWithMoreHeight = [[NSMutableArray alloc] init];
     
-    [self fetchDataFromRemote];
+    [self callForDataFromWevService];
+    
     UILongPressGestureRecognizer* longPressRecognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(onLongPress:)];
     [self.myTableView addGestureRecognizer:longPressRecognizer];
    
 }
 
+//MARK: Connect To Webservice
+-(void) callForDataFromWevService{
+    [FetchDataFromRemote fetchDataFromRemote:self.arrayOfArticles :^(Boolean answer) {
+        if(answer)
+        {dispatch_async(dispatch_get_main_queue(), ^{
+            [self.myTableView reloadData];
+        }); }
+
+        else {
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                [self showAlert];
+            });}
+    }] ;
+
+}
+
+//MARK:UIAlerViewDelegate
+-(void) showAlert{
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Network error"
+                                                    message:@"Check your network connection"
+                                                   delegate:self
+                                          cancelButtonTitle:@"OK"
+                                          otherButtonTitles:nil];
+    [alert show];
+    
+}
+
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    [self callForDataFromWevService];
+}
+
+//MARK: GestuRecognition
 - (void)onLongPress:(UILongPressGestureRecognizer *)sender{
     if (sender.state == UIGestureRecognizerStateBegan)
     {
@@ -54,42 +90,13 @@
     }
 }
 
-
--(void) fetchDataFromRemote{
-
-    NSURLSession *session = [NSURLSession sharedSession];
-    [[session dataTaskWithURL:[NSURL URLWithString:@"http://gameofthrones.wikia.com/api/v1/Articles/Top?expand=1&category=Characters&limit=75"]
-            completionHandler:^(NSData *data,
-                                NSURLResponse *response,
-                                NSError *error) {
-                if (data.length > 0 && error == nil)
-                {
-                    NSDictionary *greeting = [NSJSONSerialization JSONObjectWithData:data
-                                                                             options:0
-                                                                               error:NULL];
-                    NSMutableArray * a=  [[greeting objectForKey:@"items"]  mutableCopy];
-              
-                    for (NSString * i  in a) {
-                        
-                        Article* tmp = [[Article alloc] init:[i valueForKey:@"title"]  ForThumbnail:[i valueForKey:@"thumbnail"] ForAbstract:[i valueForKey:@"abstract"]];
-                        [self.arrayOfArticles addObject:tmp];
-                        
-                        
-                    }
-                   
-                }
-                [self.myTableView reloadData];
-            }] resume];
-
-}
-
+//MARK: TableViewDelegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     if (self.showFavourites)
           return [self.arrayOfFavourites count];
     else
           return [self.arrayOfArticles count];
-  
 }
 
 
@@ -112,24 +119,6 @@
     [self performSegueWithIdentifier:@"segueID" sender: [NSNumber numberWithInteger:indexPath.row] ];
 }
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    DetailViewController *destinationViewController = segue.destinationViewController;
-   
-    if (!self.showFavourites) {
-        destinationViewController.articleObject = [self.arrayOfArticles objectAtIndex:[sender integerValue]];
-        destinationViewController.isFavourite = [self.arrayOfFavourites containsObject:[self.arrayOfArticles objectAtIndex:[sender integerValue]]];
-    }
-    else{
-        destinationViewController.articleObject = [self.arrayOfFavourites objectAtIndex:[sender integerValue]];
-        destinationViewController.isFavourite = true;
-        
-    }
-    
-    destinationViewController.index = [sender integerValue];
-    destinationViewController.delegateMethod =self;
-}
-
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
    
     int rowHeight;
@@ -147,6 +136,25 @@
 }
 
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    DetailViewController *destinationViewController = segue.destinationViewController;
+    
+    if (!self.showFavourites) {
+        destinationViewController.articleObject = [self.arrayOfArticles objectAtIndex:[sender integerValue]];
+        destinationViewController.isFavourite = [self.arrayOfFavourites containsObject:[self.arrayOfArticles objectAtIndex:[sender integerValue]]];
+    }
+    else{
+        destinationViewController.articleObject = [self.arrayOfFavourites objectAtIndex:[sender integerValue]];
+        destinationViewController.isFavourite = true;
+        
+    }
+    
+    destinationViewController.index = [sender integerValue];
+    destinationViewController.delegateMethod =self;
+}
+
+//MARK: FavouriteDelegate
 -(void) forwardIndex: (NSInteger) index isFavourite: (Boolean) is{
     if(!self.showFavourites){
     if (is)
@@ -157,9 +165,9 @@
         [self.arrayOfFavourites removeObjectAtIndex:index];
     
     [self.myTableView reloadData];
-    NSLog(@"%@", self.arrayOfFavourites);
 }
 
+//MARK: Buttons actions
 - (IBAction)filterDataButtonClick:(id)sender {
     self.showFavourites = !self.showFavourites;
     switch (self.showFavourites) {
