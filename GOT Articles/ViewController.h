@@ -10,7 +10,5 @@
 #import "FavouriteProtocol.h"
 
 @interface ViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, FavouriteProtocol, UIAlertViewDelegate>
-
-
 @end
 

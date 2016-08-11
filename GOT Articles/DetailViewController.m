@@ -9,13 +9,16 @@
 #import "DetailViewController.h"
 
 @interface DetailViewController()
+
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *thumbnailLabel;
 @property (weak, nonatomic) IBOutlet UILabel *abstractLabel;
 @property (weak, nonatomic) IBOutlet UIButton *favouriteButtonOutlet;
+
 @end
 
 @implementation DetailViewController
+
 -(void) viewDidLoad{
     [super viewDidLoad];
     self.titleLabel.text = [self.articleObject title];

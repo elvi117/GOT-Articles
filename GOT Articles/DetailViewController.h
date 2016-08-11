@@ -6,7 +6,8 @@
 //  Copyright © 2016 Lukasz Matuszczak. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+@import UIKit;
+
 #import "Article.h"
 #import "FavouriteProtocol.h"
 
@@ -17,4 +18,5 @@
 @property (nonatomic) Boolean isFavourite;
 @property (readwrite, assign) NSInteger index;
 @property (strong, nonatomic) Article* articleObject;
+
 @end

@@ -13,9 +13,10 @@
 #import "FetchDataFromRemote.h"
 
 @interface ViewController ()
-@property (weak, nonatomic) IBOutlet UITableView *myTableView;
 
+@property (weak, nonatomic) IBOutlet UITableView *myTableView;
 @property (weak, nonatomic) IBOutlet UIButton *filterDataButtonOutlet;
+
 @property (strong, nonatomic) NSMutableArray* arrayOfArticles;
 @property (strong, nonatomic) NSMutableArray* arrayOfFavourites;
 @property (strong, nonatomic) NSMutableArray* arrayWithIndexOfCellWithMoreHeight;
@@ -24,7 +25,6 @@
 
 @end
 
-typedef void(^completionBlock)(Boolean);
 
 @implementation ViewController
 

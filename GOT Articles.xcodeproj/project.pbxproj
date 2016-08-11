@@ -71,23 +71,15 @@
 		A672F2C31D58C6D000086DA6 /* GOT Articles */ = {
 			isa = PBXGroup;
 			children = (
+				A6A5737D1D5C3FCF00B541D4 /* Views */,
+				A6A5737C1D5C3FAE00B541D4 /* Protocols */,
+				A6A5737B1D5C3FA200B541D4 /* Model Objects */,
 				A672F2C71D58C6D000086DA6 /* AppDelegate.h */,
 				A672F2C81D58C6D000086DA6 /* AppDelegate.m */,
-				A672F2CA1D58C6D000086DA6 /* ViewController.h */,
-				A672F2CB1D58C6D000086DA6 /* ViewController.m */,
-				A672F2E11D58DFBE00086DA6 /* FavouriteProtocol.h */,
 				A672F2CD1D58C6D000086DA6 /* Main.storyboard */,
 				A672F2D01D58C6D000086DA6 /* Assets.xcassets */,
 				A672F2D21D58C6D000086DA6 /* LaunchScreen.storyboard */,
 				A672F2D51D58C6D000086DA6 /* Info.plist */,
-				A672F2DB1D58CAD600086DA6 /* ArticleTableViewCell.h */,
-				A672F2DC1D58CAD600086DA6 /* ArticleTableViewCell.m */,
-				A672F2DE1D58CECB00086DA6 /* Article.h */,
-				A672F2DF1D58CECB00086DA6 /* Article.m */,
-				A69B576E1D5A0F8000ABD1A4 /* DetailViewController.h */,
-				A69B576F1D5A0F8000ABD1A4 /* DetailViewController.m */,
-				A6F394EC1D5B6DB100FFD62C /* FetchDataFromRemote.h */,
-				A6F394ED1D5B6DB100FFD62C /* FetchDataFromRemote.m */,
 				A672F2C41D58C6D000086DA6 /* Supporting Files */,
 			);
 			path = "GOT Articles";
@@ -99,6 +91,38 @@
 				A672F2C51D58C6D000086DA6 /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A6A5737B1D5C3FA200B541D4 /* Model Objects */ = {
+			isa = PBXGroup;
+			children = (
+				A672F2DE1D58CECB00086DA6 /* Article.h */,
+				A672F2DF1D58CECB00086DA6 /* Article.m */,
+				A6F394EC1D5B6DB100FFD62C /* FetchDataFromRemote.h */,
+				A6F394ED1D5B6DB100FFD62C /* FetchDataFromRemote.m */,
+			);
+			name = "Model Objects";
+			sourceTree = "<group>";
+		};
+		A6A5737C1D5C3FAE00B541D4 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				A672F2E11D58DFBE00086DA6 /* FavouriteProtocol.h */,
+			);
+			name = Protocols;
+			sourceTree = "<group>";
+		};
+		A6A5737D1D5C3FCF00B541D4 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A672F2CA1D58C6D000086DA6 /* ViewController.h */,
+				A672F2CB1D58C6D000086DA6 /* ViewController.m */,
+				A672F2DB1D58CAD600086DA6 /* ArticleTableViewCell.h */,
+				A672F2DC1D58CAD600086DA6 /* ArticleTableViewCell.m */,
+				A69B576E1D5A0F8000ABD1A4 /* DetailViewController.h */,
+				A69B576F1D5A0F8000ABD1A4 /* DetailViewController.m */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
